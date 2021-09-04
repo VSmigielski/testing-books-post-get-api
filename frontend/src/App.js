@@ -5,7 +5,7 @@ import axios from 'axios'
 function App() {
   const [allData, setAllData] = useState([]);
 
-  const url = 'http://localhost:5000/books/getBooks'
+  const url = 'http://localhost:5000/books/books'
 
     const getBooks = useCallback(() => {
         axios

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let Book = require('./book');
 
-router.route('/books').get((req, res) => {
+router.route('/books1').get((req, res) => {
     Book.find()
     .then(book => res.json(book))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -10,10 +10,11 @@ router.route('/books').get((req, res) => {
 router.get('/:name', async (req, res, next) => {
     // const isbn = req.body.isbn;
     // const author = req.body.author;
-	let name = req.params.name;
-	console.log(name)
+	const paramsName = req.params.name;
+	console.log(paramsName)
+    const name = paramsName.split('=')[1]
+    console.log(name)
     try {
-		
 		// Search books with input isbn, name, and author
 		const books = await Book.find({name: name});
 		console.log(books)
@@ -25,5 +26,7 @@ router.get('/:name', async (req, res, next) => {
 		});
 	}
 })
+
+
 
 module.exports = router;
