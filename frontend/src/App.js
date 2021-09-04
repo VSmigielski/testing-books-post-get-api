@@ -11,7 +11,7 @@ function App() {
         axios
         .get(`${url}`, {
             params: {
-                name: 'Book 1'
+                name: 'Book 1',
             }
         })
         .then(res => {

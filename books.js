@@ -7,13 +7,14 @@ router.route('/books1').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.get('/:name', async (req, res, next) => {
+router.get('/books', async (req, res, next) => {
     // const isbn = req.body.isbn;
     // const author = req.body.author;
-	const paramsName = req.params.name;
+	/* const paramsName = req.params.name;
 	console.log(paramsName)
     const name = paramsName.split('=')[1]
-    console.log(name)
+    console.log(name) */
+    const name = req.query.name;
     try {
 		// Search books with input isbn, name, and author
 		const books = await Book.find({name: name});
